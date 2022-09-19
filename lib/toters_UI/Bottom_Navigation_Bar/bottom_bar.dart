@@ -4,7 +4,6 @@ import '../Screens/Home_page/view_home.dart';
 import '../Screens/Orders_page/view_orders.dart';
 import '../Screens/Profile_page/view_profile.dart';
 import '../Screens/Search_page/view_search.dart';
-import '../Screens/Splash_screen/view_splash.dart';
 
  class BasicBottomNavigation extends StatefulWidget {
    const BasicBottomNavigation({Key? key}) : super(key: key);
