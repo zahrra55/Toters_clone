@@ -20,7 +20,7 @@ also delivering whatever the customer wants.
 | :-------- | :------- | :------------------------- |
 | `carousel_slider` | `^4.1.1` | **Required**. A carousel slider widget. |
 | ` http` | `^0.13.5` | **Required**. to use http. |
-//| `intl` | `^0.17.0` | **Required**. |
+| `intl` | `^0.17.0` | **Required**. |
 
 
 ## Installation
