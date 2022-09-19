@@ -3,10 +3,7 @@ import 'package:the_final_toters_api/toters_UI/Screens/Home_page/view_meal_detai
 
 
 class detailPage extends StatefulWidget {
-  final String img = 'images/kima.jpg';
-  final String name = 'kima';
-  final int price = 6000;
-  
+
   final String photo;
   final String Name;
   final double Rate;
@@ -22,19 +19,19 @@ class detailPage extends StatefulWidget {
 
 final List meals = [
   {
-    'photo': 'images/kima.jpg',
-    'title': 'Happy Hour',
-    'price': '3000',
+    "photo": 'images/kima.jpg',
+    "title": 'Happy Hour',
+    "price": '3000',
   },
   {
-    'photo': 'images/kima.jpg',
-    'title': 'Happy Hour',
-    'price': '3000',
+    "photo": 'images/burgerz.jpg',
+    "title": 'Happy Hour',
+    "price": '5000',
   },
   {
-    'photo': 'images/kima.jpg',
-    'title': 'Happy Hour',
-    'price': '3000',
+    "photo": 'images/gaas.jpg',
+    "title": 'Happy Hour',
+    "price": '2000',
   },
 ];
 class _detailPageState extends State<detailPage> {
@@ -95,7 +92,7 @@ class _detailPageState extends State<detailPage> {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                     image: DecorationImage(
-                                      image: AssetImage(meals[index]['photo']),
+                                      image: AssetImage(widget.photo),
                                       fit: BoxFit.cover,
                                     )),
                               ),

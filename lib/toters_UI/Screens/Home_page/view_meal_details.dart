@@ -30,7 +30,11 @@ class _burgersState extends State<burgers> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        leading: Icon(Icons.arrow_back_rounded,color: Colors.black,),
+        leading: GestureDetector(
+            onTap: (){
+              Navigator.pop(context);
+            },
+            child: Icon(Icons.arrow_back_rounded,color: Colors.black,)),
         actions: [
           Icon(Icons.share_outlined,color: Colors.black,),
           SizedBox(width: 15,),
@@ -63,9 +67,7 @@ class _burgersState extends State<burgers> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Burgers',style: TextStyle(color: Color(0xFF1fad90),fontSize: 20),),
-
-                  SizedBox(height: 30,),
+                  SizedBox(height: 10,),
                   Text(widget.name,style: TextStyle(color: Color(0xFF1fad90),fontSize: 20),),
                   SizedBox(height: 30,),
                   Container(
