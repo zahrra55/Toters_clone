@@ -40,7 +40,7 @@ class _orderPageState extends State<orderPage> {
                   style: TextStyle(fontSize: 17, fontWeight: FontWeight.w500),
                 ),
               ),
-              Image(image: AssetImage('images/upcoming.jpg')),
+                Image(image: NetworkImage('https://e.top4top.io/p_2455rl89f3.jpg')),
             ],
           ),
         ));

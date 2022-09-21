@@ -10,37 +10,37 @@ class search extends StatefulWidget {
 class _searchState extends State<search> {
   final List types = [
     {
-      'photo': 'images/happyHour.jpg',
+      'photo': 'https://g.top4top.io/p_2455m1rj62.jpg',
       'title': 'Happy Hour',
       'describtion': 'Only for one hour',
       'stores': 3,
     },
     {
-      'photo': 'images/natcho.jpg',
+      'photo': 'https://j.top4top.io/p_2455kq5if5.jpg',
       'title': 'Weekly Discounts',
       'describtion': 'Get your discount now!',
       'stores': 5,
     },
     {
-      'photo': 'images/burgerFingers.jpg',
+      'photo': 'https://f.top4top.io/p_2455rn5o51.jpg',
       'title': 'Cashback',
       'describtion': 'Earn more money',
       'stores': 4,
     },
     {
-      'photo': 'images/tolebs.jpg',
+      'photo': 'https://f.top4top.io/p_2455tzfee4.jpg',
       'title': 'Flower Bouquets',
       'describtion': 'Hand-picked Flowers',
       'stores': 1,
     },
     {
-      'photo': 'images/spagetee.jpg',
+      'photo': 'https://g.top4top.io/p_2455j7des1.jpg',
       'title': 'Definitely Eatalian',
       'describtion': 'The world\'s favorites',
       'stores': 3,
     },
     {
-      'photo': 'images/HeadPhones.jpg',
+      'photo': 'https://h.top4top.io/p_24550rtke3.jpg',
       'title': 'Retail on Toters',
       'describtion': 'Shop What you like',
       'stores': 6,
@@ -87,7 +87,7 @@ class _searchState extends State<search> {
                               width: 200,
                               decoration: BoxDecoration(
                                   image: DecorationImage(
-                                    image: AssetImage(types[index]['photo']),
+                                    image: NetworkImage(types[index]['photo']),
                                     fit: BoxFit.cover,
                                   )),
                             ),
@@ -132,8 +132,8 @@ class _searchState extends State<search> {
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset(
-                  'images/delivryaMan.jpg',
+                Image.network(
+                  'https://d.top4top.io/p_24550v2e92.jpg',
                   width: 100,
                 ),
                 Column(

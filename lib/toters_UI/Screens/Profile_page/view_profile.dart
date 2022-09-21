@@ -280,7 +280,7 @@ class _searcherState extends State<searcher> {
             width: 200,
             decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage('images/shopping.jpg'),
+                  image: NetworkImage('https://l.top4top.io/p_2455s5v3j5.jpg'),
                   fit: BoxFit.cover,
                 )),
           ),

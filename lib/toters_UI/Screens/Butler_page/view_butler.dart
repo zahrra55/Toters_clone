@@ -97,7 +97,7 @@ class _butlerPageState extends State<butlerPage> {
                     width: 130,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('images/motobike.jpg'),
+                          image: NetworkImage('https://i.top4top.io/p_2455o35ec4.jpg'),
                           fit: BoxFit.cover,
                         )),
                   ),
@@ -158,7 +158,7 @@ class _butlerPageState extends State<butlerPage> {
                     width: 130,
                     decoration: BoxDecoration(
                         image: DecorationImage(
-                          image: AssetImage('images/bags.jpg'),
+                          image: NetworkImage('https://b.top4top.io/p_2455h68n11.jpg'),
                           fit: BoxFit.cover,
                         )),
                   ),

@@ -19,23 +19,23 @@ class detailPage extends StatefulWidget {
 
 final List meals = [
   {
-    "photo": 'images/kima.jpg',
+    "photo": 'https://c.top4top.io/p_2455iq9ao1.jpg',
     "title": 'Happy Hour',
     "price": '3000',
   },
   {
-    "photo": 'images/burgerz.jpg',
+    "photo": 'https://j.top4top.io/p_24552571y1.jpg',
     "title": 'Happy Hour',
     "price": '5000',
   },
   {
-    "photo": 'images/gaas.jpg',
+    "photo": 'https://a.top4top.io/p_2455q22k74.jpg',
     "title": 'Happy Hour',
     "price": '2000',
   },
 ];
 class _detailPageState extends State<detailPage> {
-  final String img='images/kima.jpg';
+  final String img='https://c.top4top.io/p_2455iq9ao1.jpg';
   final String name='kima';
   final int price= 6000;
 
@@ -92,7 +92,7 @@ class _detailPageState extends State<detailPage> {
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(10),
                                     image: DecorationImage(
-                                      image: AssetImage(widget.photo),
+                                      image: NetworkImage(widget.photo),
                                       fit: BoxFit.cover,
                                     )),
                               ),
@@ -139,7 +139,7 @@ class _detailPageState extends State<detailPage> {
                                 width: 180,
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
-                                      image: AssetImage(meals[index]['photo']),
+                                      image: NetworkImage(meals[index]['photo']),
                                       fit: BoxFit.cover,
                                     )),
                               ),
@@ -278,7 +278,7 @@ class _detailPageState extends State<detailPage> {
                 decoration: BoxDecoration(
                   color: Colors.grey,
                   image: DecorationImage(
-                    image: AssetImage(photo),
+                    image: NetworkImage(photo),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -656,7 +656,7 @@ class _detailPageState extends State<detailPage> {
         borderRadius: BorderRadius.circular(20),
         color: Colors.grey,
         image: DecorationImage(
-          image: AssetImage(img),
+          image: NetworkImage(img),
           fit: BoxFit.fill,
         ),
       ),

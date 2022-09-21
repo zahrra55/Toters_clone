@@ -1,10 +1,16 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:http/http.dart';
 import 'package:the_final_toters_api/toters_UI/Screens/Home_page/view_restrunt.dart';
 
+var add_img=[];
+var add_times=[];
+var add_tags=[];
 
 class page1 extends StatefulWidget {
-  final String photo = 'images/kima.jpg';
+  final String photo = 'https://c.top4top.io/p_2455iq9ao1.jpg';
   final String name = 'kima';
   final double rate = 4.2;
   @override
@@ -12,6 +18,43 @@ class page1 extends StatefulWidget {
 }
 
 class _page1State extends State<page1> {
+  Future GetData() async {
+
+
+    var url = Uri.parse('http://localhost:4000/');
+    Map<String, String> headers = {"Content-type": "application/json"};
+
+    Response response = await get(url);
+
+    int statusCode = response.statusCode;
+
+    String body = response.body;
+    List<dynamic> list2 = jsonDecode(body);
+
+
+
+    setState(() {
+      for(int i = 0 ; i < list2.length;i++){
+
+        add_img.add(list2[i]['addIMG']);
+        add_times.add(list2[i]['TimeAdded']);
+        add_tags.add(list2[i]['TAG']);
+      }
+    });
+
+
+
+
+
+    // TODO convert json to object...
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    GetData();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,8 +98,8 @@ class _page1State extends State<page1> {
               SizedBox(
                 width: 10,
               ),
-              Image.asset(
-                'images/filter_settings_sliders_icon.png',
+              Image.network(
+                'https://i.top4top.io/p_2455z6r101.png',
                 width: 22,
               ),
               SizedBox(
@@ -73,6 +116,19 @@ class _page1State extends State<page1> {
           Center(
             child: Column(
               children: [
+                Container(
+                    width: MediaQuery.of(context).size.width,
+                    height: 120,
+                    child: ListView.builder(
+                        itemCount: add_img.length,
+                        itemBuilder: (context,index)
+                        {
+                          return Center(
+                            child: Image.network(add_img[index]),
+                          );
+                        }
+                    )
+                ),
                 Row(
                   children: [
                     SizedBox(
@@ -150,8 +206,8 @@ class _page1State extends State<page1> {
                                       color: Colors.black),
                                 ),
                                 //Icon(Icons.arrow_forward),
-                                Image.asset(
-                                  'images/arrowNext.png',
+                               Image.network(
+                                  'https://g.top4top.io/p_2455pzfxz1.png',
                                   width: 19,
                                 ),
                               ],
@@ -165,38 +221,48 @@ class _page1State extends State<page1> {
                 SizedBox(
                   height: 20,
                 ),
-                CarouselSlider(
-                    items: [
-                      crauselItems('images/school.jpg'),
-                      crauselItems('images/fiftyPeresent.jpg'),
-                      crauselItems('images/orderNow.jpg'),
-                    ],
-                    options: CarouselOptions(
-                      height: 210,
-                      aspectRatio: 16 / 9,
-                      viewportFraction: 0.9,
-                      initialPage: 0,
-                      enableInfiniteScroll: true,
-                      reverse: false,
-                      autoPlay: true,
-                      autoPlayInterval: Duration(seconds: 3),
-                      autoPlayAnimationDuration: Duration(milliseconds: 800),
-                      autoPlayCurve: Curves.easeInToLinear,
-                      enlargeCenterPage: true,
-                      scrollDirection: Axis.horizontal,
-                    )),
+                Container(
+                  width: MediaQuery.of(context).size.width,
+                  height: 220,
+                  child: ListView.builder(
+                      itemCount: 1,
+                      itemBuilder:(context,index) {
+                    return CarouselSlider(
+                        items: [
+                          crauselItems('https://j.top4top.io/p_2455r7ln93.jpg'),
+                          crauselItems('https://l.top4top.io/p_24552lqfd3.jpg'),
+                          crauselItems('https://k.top4top.io/p_2455y1c0k4.jpg'),
+                        ],
+                        options: CarouselOptions(
+                          height: 210,
+                          aspectRatio: 16 / 9,
+                          viewportFraction: 0.9,
+                          initialPage: 0,
+                          enableInfiniteScroll: true,
+                          reverse: false,
+                          autoPlay: true,
+                          autoPlayInterval: Duration(seconds: 3),
+                          autoPlayAnimationDuration: Duration(milliseconds: 800),
+                          autoPlayCurve: Curves.easeInToLinear,
+                          enlargeCenterPage: true,
+                          scrollDirection: Axis.horizontal,
+                        ));
+                  }
+                  ),
+                ),
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    FoodTypes('images/burger.jpg', 'Food'),
-                    FoodTypes('images/shopping.jpg', 'Shops'),
+                    FoodTypes('https://k.top4top.io/p_2455eh99y5.jpg', 'Food'),
+                    FoodTypes('https://l.top4top.io/p_2455s5v3j5.jpg', 'Shops'),
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    FoodTypes('images/delivery.jpg', 'Bulter'),
-                    FoodTypes('images/Wallet.jpg', 'Wallet'),
+                    FoodTypes('https://k.top4top.io/p_2455f5o572.jpg', 'Bulter'),
+                    FoodTypes('https://g.top4top.io/p_2455b5yn11.jpg', 'Wallet'),
                   ],
                 ),
                 Line(),
@@ -261,9 +327,9 @@ class _page1State extends State<page1> {
                     children: [
                       meal(widget.photo, widget.name, 13, 30, widget.rate,
                           'lunch'),
-                      meal('images/burgerz.jpg', 'Burger classic', 13, 30, 4.1,
+                      meal('https://j.top4top.io/p_24552571y1.jpg', 'Burger classic', 13, 30, 4.1,
                           'dinner'),
-                      meal('images/gaas.jpg', 'Shawarma', 13, 30, 4.4, 'lunch'),
+                      meal('https://a.top4top.io/p_2455q22k74.jpg', 'Shawarma', 13, 30, 4.4, 'lunch'),
                       ViewAll(),
                     ],
                   ),
@@ -317,10 +383,9 @@ class _page1State extends State<page1> {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
-                      FoodTypescircle('images/breakfast1.jpg', 'Saray Kibbeh'),
-                      FoodTypescircle('images/breakfast2.jpg', 'Beef Kabab'),
-                      FoodTypescircle(
-                          'images/breakfast3.jpg', 'Baklaa With\nGhee'),
+                      FoodTypescircle('https://h.top4top.io/p_2455mbaxg2.jpg', 'Saray Kibbeh'),
+                      FoodTypescircle('https://i.top4top.io/p_24558uv6d3.jpg', 'Beef Kabab'),
+                      FoodTypescircle('https://j.top4top.io/p_2455l2i3q4.jpg', 'Baklaa With\nGhee'),
                       Container(
                           width: 120,
                           height: 40,
@@ -421,11 +486,10 @@ class _page1State extends State<page1> {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
-                      meal('images/meat2.jpg', 'Meat collection', 23, 45, 4.1,
+                      meal('https://b.top4top.io/p_2455cot0x5.jpg', 'Meat collection', 23, 45, 4.1,
                           '45000'),
-                      meal(
-                          'images/meat3.jpg', 'Beef mrat', 23, 45, 4.1, '8000'),
-                      meal('images/meat4.jpg', 'Groung meat', 56, 78, 3.5,
+                      meal('https://h.top4top.io/p_2455cqd9d1.jpg', 'Beef mrat', 23, 45, 4.1, '8000'),
+                      meal('https://i.top4top.io/p_2455m3pje2.jpg', 'Groung meat', 56, 78, 3.5,
                           '10000'),
                       ViewAll(),
                     ],
@@ -474,7 +538,7 @@ class _page1State extends State<page1> {
                 borderRadius: BorderRadius.circular(20),
                 color: Colors.white,
                 image: DecorationImage(
-                  image: AssetImage(img),
+                  image: NetworkImage(img),
                   fit: BoxFit.cover,
                 )),
           ),
@@ -502,7 +566,7 @@ class _page1State extends State<page1> {
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(50),
                 image: DecorationImage(
-                  image: AssetImage(img),
+                  image: NetworkImage(img),
                   fit: BoxFit.cover,
                 )),
           ),
@@ -535,7 +599,7 @@ class _page1State extends State<page1> {
                   borderRadius: BorderRadius.circular(20),
                   color: Colors.grey,
                   image: DecorationImage(
-                    image: AssetImage(photo),
+                    image: NetworkImage(photo),
                     fit: BoxFit.fill,
                   ),
                 ),
@@ -776,7 +840,7 @@ class _page1State extends State<page1> {
         borderRadius: BorderRadius.circular(20),
         color: Colors.grey,
         image: DecorationImage(
-          image: AssetImage(img),
+          image: NetworkImage(img),
           fit: BoxFit.fill,
         ),
       ),

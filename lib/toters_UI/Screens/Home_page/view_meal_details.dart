@@ -50,7 +50,7 @@ class _burgersState extends State<burgers> {
             height: 220,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(widget.img),
+                image: NetworkImage(widget.img),
                 fit: BoxFit.cover,
               ),
             ),
