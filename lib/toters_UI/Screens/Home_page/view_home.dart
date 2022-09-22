@@ -39,6 +39,7 @@ class _page1State extends State<page1> {
         add_img.add(list2[i]['addIMG']);
         add_times.add(list2[i]['TimeAdded']);
         add_tags.add(list2[i]['TAG']);
+        print(list2[i]['addIMG']);
       }
     });
 
@@ -229,9 +230,9 @@ class _page1State extends State<page1> {
                       itemBuilder:(context,index) {
                     return CarouselSlider(
                         items: [
-                          crauselItems('https://j.top4top.io/p_2455r7ln93.jpg'),
-                          crauselItems('https://l.top4top.io/p_24552lqfd3.jpg'),
-                          crauselItems('https://k.top4top.io/p_2455y1c0k4.jpg'),
+                          crauselItems(add_img[0]),
+                          crauselItems(add_img[1]),
+                          crauselItems(add_img[2]),
                         ],
                         options: CarouselOptions(
                           height: 210,
