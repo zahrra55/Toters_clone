@@ -1,13 +1,9 @@
 import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:http/http.dart';
 import 'package:the_final_toters_api/toters_UI/Screens/Home_page/view_restrunt.dart';
-
-var add_img=[];
-var add_times=[];
-var add_tags=[];
+import '../../../api_connection/api.dart';
 
 class page1 extends StatefulWidget {
   final String photo = 'https://c.top4top.io/p_2455iq9ao1.jpg';
@@ -16,12 +12,11 @@ class page1 extends StatefulWidget {
   @override
   State<page1> createState() => _page1State();
 }
-
+///////////////////////////////////////////////////////////////Getting the data
 class _page1State extends State<page1> {
   Future GetData() async {
 
-
-    var url = Uri.parse('http://localhost:4000/');
+    var url = Uri.parse('http://localhost:4000/get_home_adds/:id');
     Map<String, String> headers = {"Content-type": "application/json"};
 
     Response response = await get(url);
@@ -41,20 +36,136 @@ class _page1State extends State<page1> {
       }
     });
 
-
-
-
-
-    // TODO convert json to object...
   }
-
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     GetData();
   }
 
+  Future GetData2() async {
+
+
+    var url = Uri.parse('http://localhost:4000/get_home_catogories/:id');
+    Map<String, String> headers = {"Content-type": "application/json"};
+
+    Response response = await get(url);
+
+    int statusCode = response.statusCode;
+
+    String body = response.body;
+    List<dynamic> list2 = jsonDecode(body);
+
+    print(body);
+    setState(() {
+      for(int i = 0 ; i < list2.length;i++){
+
+        add_img.add(list2[i]['catogoryNAME']);
+        add_times.add(list2[i]['catogoryIMG']);
+        add_tags.add(list2[i]['timeADDED']);
+        add_tags.add(list2[i]['catogoryTAG']);
+      }
+    });
+
+  }
+  @override
+  void initState2() {
+    super.initState();
+    GetData2();
+  }
+
+  Future GetData3() async {
+
+
+    var url = Uri.parse('http://localhost:4000/get_location/:id');
+    Map<String, String> headers = {"Content-type": "application/json"};
+
+    Response response = await get(url);
+
+    int statusCode = response.statusCode;
+
+    String body = response.body;
+    List<dynamic> list2 = jsonDecode(body);
+
+    print(body);
+    setState(() {
+      for(int i = 0 ; i < list2.length;i++){
+
+        loc_country.add(list2[i]['country']);
+        loc_city.add(list2[i]['city']);
+        loc_tag.add(list2[i]['tag']);
+      }
+    });
+
+  }
+  @override
+  void initState3() {
+    super.initState();
+    GetData3();
+  }
+
+  Future GetData4() async {
+
+    var url = Uri.parse('http://localhost:4000/get_log_in/:id');
+    Map<String, String> headers = {"Content-type": "application/json"};
+
+    Response response = await get(url);
+
+    int statusCode = response.statusCode;
+
+    String body = response.body;
+    List<dynamic> list2 = jsonDecode(body);
+
+    print(body);
+    setState(() {
+      for(int i = 0 ; i < list2.length;i++){
+
+        log_name.add(list2[i]['NAME']);
+        log_phone.add(list2[i]['PhonNum']);
+        log_code.add(list2[i]['Code']);
+        log_loc.add(list2[i]['Location']);
+        log_time.add(list2[i]['LogIn_time']);
+      }
+    });
+
+  }
+  @override
+  void initState4() {
+    super.initState();
+    GetData4();
+  }
+
+  Future GetData5() async {
+
+    var url = Uri.parse('http://localhost:4000//get_search_adds/:id');
+    Map<String, String> headers = {"Content-type": "application/json"};
+
+    Response response = await get(url);
+
+    int statusCode = response.statusCode;
+
+    String body = response.body;
+    List<dynamic> list2 = jsonDecode(body);
+
+    print(body);
+    setState(() {
+      for(int i = 0 ; i < list2.length;i++){
+
+        searsh_img.add(list2[i]['imgUrl']);
+        searsh_stores.add(list2[i]['no_stores']);
+        searsh_title.add(list2[i]['title']);
+        searsh_time.add(list2[i]['time_added']);
+        searsh_tag.add(list2[i]['RES_TAG']);
+      }
+    });
+
+  }
+  @override
+  void initState5() {
+    super.initState();
+    GetData5();
+  }
+///////////////////////////////////////////////////////////////Getting the data
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,7 +182,7 @@ class _page1State extends State<page1> {
             Row(
               children: [
                 Text(
-                  'Baghdad,Iraq',
+                  'Baghdad,Iraq',//'loc_city[0],loc_country[0]',
                   style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,
@@ -212,12 +323,14 @@ class _page1State extends State<page1> {
                   height: 220,
                   child: ListView.builder(
                       itemCount: 1,
+                      scrollDirection: Axis.horizontal,
                       itemBuilder:(context,index) {
-                    return CarouselSlider(
+                    return
+                      CarouselSlider(
                         items: [
-                          crauselItems(add_img[0]),
-                          crauselItems(add_img[1]),
-                          crauselItems(add_img[2]),
+                          crauselItems('https://k.top4top.io/p_2455y1c0k4.jpg'), //(add_img[0])
+                          crauselItems('https://j.top4top.io/p_2455r7ln93.jpg'), //(add_img[1])
+                          crauselItems('https://l.top4top.io/p_24552lqfd3.jpg'), //(add_img[2])
                         ],
                         options: CarouselOptions(
                           height: 210,
@@ -240,15 +353,15 @@ class _page1State extends State<page1> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    FoodTypes('https://k.top4top.io/p_2455eh99y5.jpg', 'Food'),
-                    FoodTypes('https://l.top4top.io/p_2455s5v3j5.jpg', 'Shops'),
+                    FoodTypes('https://k.top4top.io/p_2455eh99y5.jpg', 'Food'),//'cat_img[0],cat_name[0]'
+                      FoodTypes('https://l.top4top.io/p_2455s5v3j5.jpg', 'Shops'),//'cat_img[1],cat_name[2]'
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    FoodTypes('https://k.top4top.io/p_2455f5o572.jpg', 'Bulter'),
-                    FoodTypes('https://g.top4top.io/p_2455b5yn11.jpg', 'Wallet'),
+                    FoodTypes('https://k.top4top.io/p_2455f5o572.jpg', 'Bulter'),//'cat_img[2],cat_name[2]'
+                    FoodTypes('https://g.top4top.io/p_2455b5yn11.jpg', 'Wallet'),//'cat_img[3],cat_name[3]'
                   ],
                 ),
                 Line(),
@@ -366,11 +479,11 @@ class _page1State extends State<page1> {
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 145,
-                  child: ListView(
+                  child: ListView(  //->listview.builder( itemcount:cat_img.length,scrollDirection: Axis.horizontal,itemBuilder:(context,index)
                     scrollDirection: Axis.horizontal,
                     children: [
-                      FoodTypescircle('https://h.top4top.io/p_2455mbaxg2.jpg', 'Saray Kibbeh'),
-                      FoodTypescircle('https://i.top4top.io/p_24558uv6d3.jpg', 'Beef Kabab'),
+                      FoodTypescircle('https://h.top4top.io/p_2455mbaxg2.jpg', 'Saray Kibbeh'),//return FoodTypescircle(cat_img[index],cat_name[index]);
+                      FoodTypescircle('https://i.top4top.io/p_24558uv6d3.jpg', 'Beef Kabab'),  //and so on for other listviews...
                       FoodTypescircle('https://j.top4top.io/p_2455l2i3q4.jpg', 'Baklaa With\nGhee'),
                       Container(
                           width: 120,
