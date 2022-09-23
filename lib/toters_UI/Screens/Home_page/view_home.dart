@@ -31,15 +31,13 @@ class _page1State extends State<page1> {
     String body = response.body;
     List<dynamic> list2 = jsonDecode(body);
 
-
-
+    print(body);
     setState(() {
       for(int i = 0 ; i < list2.length;i++){
 
         add_img.add(list2[i]['addIMG']);
         add_times.add(list2[i]['TimeAdded']);
         add_tags.add(list2[i]['TAG']);
-        print(list2[i]['addIMG']);
       }
     });
 
@@ -117,19 +115,6 @@ class _page1State extends State<page1> {
           Center(
             child: Column(
               children: [
-                Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 120,
-                    child: ListView.builder(
-                        itemCount: add_img.length,
-                        itemBuilder: (context,index)
-                        {
-                          return Center(
-                            child: Image.network(add_img[index]),
-                          );
-                        }
-                    )
-                ),
                 Row(
                   children: [
                     SizedBox(
