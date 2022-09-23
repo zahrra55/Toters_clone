@@ -12,10 +12,10 @@ class page1 extends StatefulWidget {
   @override
   State<page1> createState() => _page1State();
 }
+
 ///////////////////////////////////////////////////////////////Getting the data
 class _page1State extends State<page1> {
   Future GetData() async {
-
     var url = Uri.parse('http://localhost:4000/get_home_adds/:id');
     Map<String, String> headers = {"Content-type": "application/json"};
 
@@ -28,15 +28,14 @@ class _page1State extends State<page1> {
 
     print(body);
     setState(() {
-      for(int i = 0 ; i < list2.length;i++){
-
+      for (int i = 0; i < list2.length; i++) {
         add_img.add(list2[i]['addIMG']);
         add_times.add(list2[i]['TimeAdded']);
         add_tags.add(list2[i]['TAG']);
       }
     });
-
   }
+
   @override
   void initState() {
     super.initState();
@@ -44,8 +43,6 @@ class _page1State extends State<page1> {
   }
 
   Future GetData2() async {
-
-
     var url = Uri.parse('http://localhost:4000/get_home_catogories/:id');
     Map<String, String> headers = {"Content-type": "application/json"};
 
@@ -58,16 +55,15 @@ class _page1State extends State<page1> {
 
     print(body);
     setState(() {
-      for(int i = 0 ; i < list2.length;i++){
-
+      for (int i = 0; i < list2.length; i++) {
         add_img.add(list2[i]['catogoryNAME']);
         add_times.add(list2[i]['catogoryIMG']);
         add_tags.add(list2[i]['timeADDED']);
         add_tags.add(list2[i]['catogoryTAG']);
       }
     });
-
   }
+
   @override
   void initState2() {
     super.initState();
@@ -75,8 +71,6 @@ class _page1State extends State<page1> {
   }
 
   Future GetData3() async {
-
-
     var url = Uri.parse('http://localhost:4000/get_location/:id');
     Map<String, String> headers = {"Content-type": "application/json"};
 
@@ -89,15 +83,14 @@ class _page1State extends State<page1> {
 
     print(body);
     setState(() {
-      for(int i = 0 ; i < list2.length;i++){
-
+      for (int i = 0; i < list2.length; i++) {
         loc_country.add(list2[i]['country']);
         loc_city.add(list2[i]['city']);
         loc_tag.add(list2[i]['tag']);
       }
     });
-
   }
+
   @override
   void initState3() {
     super.initState();
@@ -105,7 +98,6 @@ class _page1State extends State<page1> {
   }
 
   Future GetData4() async {
-
     var url = Uri.parse('http://localhost:4000/get_log_in/:id');
     Map<String, String> headers = {"Content-type": "application/json"};
 
@@ -118,8 +110,7 @@ class _page1State extends State<page1> {
 
     print(body);
     setState(() {
-      for(int i = 0 ; i < list2.length;i++){
-
+      for (int i = 0; i < list2.length; i++) {
         log_name.add(list2[i]['NAME']);
         log_phone.add(list2[i]['PhonNum']);
         log_code.add(list2[i]['Code']);
@@ -127,8 +118,8 @@ class _page1State extends State<page1> {
         log_time.add(list2[i]['LogIn_time']);
       }
     });
-
   }
+
   @override
   void initState4() {
     super.initState();
@@ -136,7 +127,6 @@ class _page1State extends State<page1> {
   }
 
   Future GetData5() async {
-
     var url = Uri.parse('http://localhost:4000//get_search_adds/:id');
     Map<String, String> headers = {"Content-type": "application/json"};
 
@@ -149,8 +139,7 @@ class _page1State extends State<page1> {
 
     print(body);
     setState(() {
-      for(int i = 0 ; i < list2.length;i++){
-
+      for (int i = 0; i < list2.length; i++) {
         searsh_img.add(list2[i]['imgUrl']);
         searsh_stores.add(list2[i]['no_stores']);
         searsh_title.add(list2[i]['title']);
@@ -158,13 +147,14 @@ class _page1State extends State<page1> {
         searsh_tag.add(list2[i]['RES_TAG']);
       }
     });
-
   }
+
   @override
   void initState5() {
     super.initState();
     GetData5();
   }
+
 ///////////////////////////////////////////////////////////////Getting the data
   @override
   Widget build(BuildContext context) {
@@ -182,7 +172,7 @@ class _page1State extends State<page1> {
             Row(
               children: [
                 Text(
-                  'Baghdad,Iraq',//'loc_city[0],loc_country[0]',
+                  'Baghdad,Iraq', //'loc_city[0],loc_country[0]',
                   style: TextStyle(
                       fontSize: 16,
                       color: Colors.black,
@@ -303,7 +293,7 @@ class _page1State extends State<page1> {
                                       color: Colors.black),
                                 ),
                                 //Icon(Icons.arrow_forward),
-                               Image.network(
+                                Image.network(
                                   'https://g.top4top.io/p_2455pzfxz1.png',
                                   width: 19,
                                 ),
@@ -318,50 +308,46 @@ class _page1State extends State<page1> {
                 SizedBox(
                   height: 20,
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: 220,
-                  child: ListView.builder(
-                      itemCount: 1,
+                CarouselSlider(  //->listview.builder( itemcount:add_name.length,scrollDirection: Axis.horizontal,itemBuilder:(context,index)
+                                  //in that case we are going tu use add_img[index] instead
+                items: [
+                      crauselItems(
+                          'https://k.top4top.io/p_2455y1c0k4.jpg'), //(add_img[0])
+                      crauselItems(
+                          'https://j.top4top.io/p_2455r7ln93.jpg'), //(add_img[1])
+                      crauselItems(
+                          'https://l.top4top.io/p_24552lqfd3.jpg'), //(add_img[2])
+                    ],
+                    options: CarouselOptions(
+                      height: 210,
+                      aspectRatio: 16 / 9,
+                      viewportFraction: 0.9,
+                      initialPage: 0,
+                      enableInfiniteScroll: true,
+                      reverse: false,
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 3),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.easeInToLinear,
+                      enlargeCenterPage: true,
                       scrollDirection: Axis.horizontal,
-                      itemBuilder:(context,index) {
-                    return
-                      CarouselSlider(
-                        items: [
-                          crauselItems('https://k.top4top.io/p_2455y1c0k4.jpg'), //(add_img[0])
-                          crauselItems('https://j.top4top.io/p_2455r7ln93.jpg'), //(add_img[1])
-                          crauselItems('https://l.top4top.io/p_24552lqfd3.jpg'), //(add_img[2])
-                        ],
-                        options: CarouselOptions(
-                          height: 210,
-                          aspectRatio: 16 / 9,
-                          viewportFraction: 0.9,
-                          initialPage: 0,
-                          enableInfiniteScroll: true,
-                          reverse: false,
-                          autoPlay: true,
-                          autoPlayInterval: Duration(seconds: 3),
-                          autoPlayAnimationDuration: Duration(milliseconds: 800),
-                          autoPlayCurve: Curves.easeInToLinear,
-                          enlargeCenterPage: true,
-                          scrollDirection: Axis.horizontal,
-                        ));
-                  }
-                  ),
-                ),
-
+                    )),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    FoodTypes('https://k.top4top.io/p_2455eh99y5.jpg', 'Food'),//'cat_img[0],cat_name[0]'
-                      FoodTypes('https://l.top4top.io/p_2455s5v3j5.jpg', 'Shops'),//'cat_img[1],cat_name[2]'
+                    FoodTypes('https://k.top4top.io/p_2455eh99y5.jpg',
+                        'Food'), //'cat_img[0],cat_name[0]'
+                    FoodTypes('https://l.top4top.io/p_2455s5v3j5.jpg',
+                        'Shops'), //'cat_img[1],cat_name[2]'
                   ],
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    FoodTypes('https://k.top4top.io/p_2455f5o572.jpg', 'Bulter'),//'cat_img[2],cat_name[2]'
-                    FoodTypes('https://g.top4top.io/p_2455b5yn11.jpg', 'Wallet'),//'cat_img[3],cat_name[3]'
+                    FoodTypes('https://k.top4top.io/p_2455f5o572.jpg',
+                        'Bulter'), //'cat_img[2],cat_name[2]'
+                    FoodTypes('https://g.top4top.io/p_2455b5yn11.jpg',
+                        'Wallet'), //'cat_img[3],cat_name[3]'
                   ],
                 ),
                 Line(),
@@ -426,9 +412,10 @@ class _page1State extends State<page1> {
                     children: [
                       meal(widget.photo, widget.name, 13, 30, widget.rate,
                           'lunch'),
-                      meal('https://j.top4top.io/p_24552571y1.jpg', 'Burger classic', 13, 30, 4.1,
-                          'dinner'),
-                      meal('https://a.top4top.io/p_2455q22k74.jpg', 'Shawarma', 13, 30, 4.4, 'lunch'),
+                      meal('https://j.top4top.io/p_24552571y1.jpg',
+                          'Burger classic', 13, 30, 4.1, 'dinner'),
+                      meal('https://a.top4top.io/p_2455q22k74.jpg', 'Shawarma',
+                          13, 30, 4.4, 'lunch'),
                       ViewAll(),
                     ],
                   ),
@@ -479,12 +466,16 @@ class _page1State extends State<page1> {
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 145,
-                  child: ListView(  //->listview.builder( itemcount:cat_img.length,scrollDirection: Axis.horizontal,itemBuilder:(context,index)
+                  child: ListView(
+                    //->listview.builder( itemcount:cat_img.length,scrollDirection: Axis.horizontal,itemBuilder:(context,index)
                     scrollDirection: Axis.horizontal,
                     children: [
-                      FoodTypescircle('https://h.top4top.io/p_2455mbaxg2.jpg', 'Saray Kibbeh'),//return FoodTypescircle(cat_img[index],cat_name[index]);
-                      FoodTypescircle('https://i.top4top.io/p_24558uv6d3.jpg', 'Beef Kabab'),  //and so on for other listviews...
-                      FoodTypescircle('https://j.top4top.io/p_2455l2i3q4.jpg', 'Baklaa With\nGhee'),
+                      FoodTypescircle('https://h.top4top.io/p_2455mbaxg2.jpg',
+                          'Saray Kibbeh'), //return FoodTypescircle(cat_img[index],cat_name[index]);
+                      FoodTypescircle('https://i.top4top.io/p_24558uv6d3.jpg',
+                          'Beef Kabab'), //and so on for other listviews...
+                      FoodTypescircle('https://j.top4top.io/p_2455l2i3q4.jpg',
+                          'Baklaa With\nGhee'),
                       Container(
                           width: 120,
                           height: 40,
@@ -585,11 +576,12 @@ class _page1State extends State<page1> {
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: [
-                      meal('https://b.top4top.io/p_2455cot0x5.jpg', 'Meat collection', 23, 45, 4.1,
-                          '45000'),
-                      meal('https://h.top4top.io/p_2455cqd9d1.jpg', 'Beef mrat', 23, 45, 4.1, '8000'),
-                      meal('https://i.top4top.io/p_2455m3pje2.jpg', 'Groung meat', 56, 78, 3.5,
-                          '10000'),
+                      meal('https://b.top4top.io/p_2455cot0x5.jpg',
+                          'Meat collection', 23, 45, 4.1, '45000'),
+                      meal('https://h.top4top.io/p_2455cqd9d1.jpg', 'Beef mrat',
+                          23, 45, 4.1, '8000'),
+                      meal('https://i.top4top.io/p_2455m3pje2.jpg',
+                          'Groung meat', 56, 78, 3.5, '10000'),
                       ViewAll(),
                     ],
                   ),
@@ -799,20 +791,20 @@ class _page1State extends State<page1> {
                             ),
                             child: Center(
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.star,
-                                      color: Color(0xFF1fad90),
-                                      size: 17,
-                                    ),
-                                    Text(
-                                      '$rate',
-                                      style: TextStyle(
-                                          color: Colors.black, fontSize: 9),
-                                    ),
-                                  ],
-                                )),
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.star,
+                                  color: Color(0xFF1fad90),
+                                  size: 17,
+                                ),
+                                Text(
+                                  '$rate',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 9),
+                                ),
+                              ],
+                            )),
                           ),
                         ],
                       ),
@@ -828,20 +820,20 @@ class _page1State extends State<page1> {
                         ),
                         child: Center(
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  Icons.credit_card,
-                                  color: Color(0xFFea6309),
-                                  size: 17,
-                                ),
-                                Text(
-                                  ' 25% off',
-                                  style: TextStyle(
-                                      color: Color(0xFFea6309), fontSize: 9),
-                                ),
-                              ],
-                            )),
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.credit_card,
+                              color: Color(0xFFea6309),
+                              size: 17,
+                            ),
+                            Text(
+                              ' 25% off',
+                              style: TextStyle(
+                                  color: Color(0xFFea6309), fontSize: 9),
+                            ),
+                          ],
+                        )),
                       ),
                       SizedBox(
                         width: 10,
@@ -857,20 +849,20 @@ class _page1State extends State<page1> {
                             ),
                             child: Center(
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    Icon(
-                                      Icons.add_circle_outline,
-                                      color: Colors.blue,
-                                      size: 16,
-                                    ),
-                                    Text(
-                                      '  Earn Points',
-                                      style: TextStyle(
-                                          color: Colors.blue, fontSize: 9),
-                                    ),
-                                  ],
-                                )),
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.add_circle_outline,
+                                  color: Colors.blue,
+                                  size: 16,
+                                ),
+                                Text(
+                                  '  Earn Points',
+                                  style: TextStyle(
+                                      color: Colors.blue, fontSize: 9),
+                                ),
+                              ],
+                            )),
                           ),
                         ],
                       ),
