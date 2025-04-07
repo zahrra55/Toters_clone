@@ -78,10 +78,10 @@ For more details, see the [LICENSE](https://choosealicense.com/licenses/mit/) fi
 
 Here are some screenshots of the application:
 
-![App Screenshot 1](.\screenshots\1.jpg)  
-![App Screenshot 2](.\screenshots\2.jpg)  
-![App Screenshot 3](.\screenshots\3.jpg)  
-![App Screenshot 4](.\screenshots\4.jpg)  
-![App Screenshot 5](.\screenshots\5.jpg)  
-![App Screenshot 6](.\screenshots\6.jpg)  
-![App Screenshot 7](.\screenshots\7.jpg)
+![App Screenshot 1](https://github.com/zahrra55/Toters_clone/blob/master/screenshots/1.jpg)  
+![App Screenshot 2](https://github.com/zahrra55/Toters_clone/blob/master/screenshots/2.jpg)  
+![App Screenshot 3](https://github.com/zahrra55/Toters_clone/blob/master/screenshots/3.jpg)  
+![App Screenshot 4](https://github.com/zahrra55/Toters_clone/blob/master/screenshots/4.jpg)  
+![App Screenshot 5](https://github.com/zahrra55/Toters_clone/blob/master/screenshots/5.jpg)  
+![App Screenshot 6](https://github.com/zahrra55/Toters_clone/blob/master/screenshots/6.jpg)  
+![App Screenshot 7](https://github.com/zahrra55/Toters_clone/blob/master/screenshots/7.jpg)
