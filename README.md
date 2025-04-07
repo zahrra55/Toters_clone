@@ -78,7 +78,7 @@ For more details, see the [LICENSE](https://choosealicense.com/licenses/mit/) fi
 
 Here are some screenshots of the application:
 
-[App Screenshot 1](blob/master/screenshots/1.jpg)  
+[App Screenshot 1](https://github.com/zahrra55/Toters_clone/blob/master/screenshots/1.jpg)  
 [App Screenshot 2](https://github.com/zahrra55/Toters_clone/blob/master/screenshots/2.jpg)  
 [App Screenshot 3](https://github.com/zahrra55/Toters_clone/blob/master/screenshots/3.jpg)  
 [App Screenshot 4](https://github.com/zahrra55/Toters_clone/blob/master/screenshots/4.jpg)  
