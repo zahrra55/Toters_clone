@@ -19,8 +19,7 @@ An application to share and order food, also delivering whatever the customer wa
 ---
 
 ## Badges
-[![MIT License](https://img.shields.io/badge/Dart-2.1-blue)](https://choosealicense.com/licenses/mit/)  
-[![GPLv3 License](https://img.shields.io/badge/Flutter-3.3.2-9cf)](https://opensource.org/licenses/)  
+[![GPLv3 License](https://img.shields.io/badge/Flutter-3.3.2-9cf)](https://opensource.org/licenses/)
 [![AGPL License](https://img.shields.io/badge/Node%20js-16.17.0-green)](http://www.gnu.org/licenses/agpl-3.0)
 
 ---
@@ -79,10 +78,10 @@ For more details, see the [LICENSE](https://choosealicense.com/licenses/mit/) fi
 
 Here are some screenshots of the application:
 
-![App Screenshot 1](./screenshots/screenshot1.jpg)  
-![App Screenshot 2](./screenshots/screenshot2.jpg)  
-![App Screenshot 3](./screenshots/screenshot3.jpg)  
-![App Screenshot 4](./screenshots/screenshot4.jpg)  
-![App Screenshot 5](./screenshots/screenshot5.jpg)  
-![App Screenshot 6](./screenshots/screenshot6.jpg)  
-![App Screenshot 7](./screenshots/screenshot7.jpg)
+![App Screenshot 1](.\screenshots\1.jpg)  
+![App Screenshot 2](.\screenshots\2.jpg)  
+![App Screenshot 3](.\screenshots\3.jpg)  
+![App Screenshot 4](.\screenshots\4.jpg)  
+![App Screenshot 5](.\screenshots\5.jpg)  
+![App Screenshot 6](.\screenshots\6.jpg)  
+![App Screenshot 7](.\screenshots\7.jpg)
