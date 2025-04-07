@@ -2,7 +2,7 @@
 
 An application to share and order food, also delivering whatever the customer wants.
 
-![Logo](https://th.bing.com/th/id/R.b0fc49c5dd848a5f3f5399b9de9ef943?rik=AQ1CNoMl3EsiBg&riu=http%3a%2f%2fbeirutdigitaldistrict.s3.amazonaws.com%2fblog%2f5848_1555505316_8164_1554129405_toters-logo.png&ehk=jrp81wgfQlKHDE2ROxSIX4HoZd%2bIE4l7uv%2fcaGvYBAg%3d&risl=&pid=ImgRaw&r=0)
+![Logo](https://png.pngitem.com/pimgs/s/260-2609045_toters-logo-png-transparent-png.png)
 
 ---
 
